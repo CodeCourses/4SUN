@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="CircleFunctionsService" targetNamespace="http://service.simplesoapexample.supinfo.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.simplesoapexample.supinfo.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://service.simplesoapexample.supinfo.com/" version="1.0" xmlns:tns="http://service.simplesoapexample.supinfo.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="getArea" type="tns:getArea"/>
+<xs:element name="getAreaResponse" type="tns:getAreaResponse"/>
+<xs:element name="getCircumference" type="tns:getCircumference"/>
+<xs:element name="getCircumferenceResponse" type="tns:getCircumferenceResponse"/>
+<xs:complexType name="getArea">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAreaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCircumference">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCircumferenceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCircumferenceResponse">
+    <wsdl:part element="tns:getCircumferenceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCircumference">
+    <wsdl:part element="tns:getCircumference" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAreaResponse">
+    <wsdl:part element="tns:getAreaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getArea">
+    <wsdl:part element="tns:getArea" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CircleFunctions">
+    <wsdl:operation name="getArea">
+      <wsdl:input message="tns:getArea" name="getArea">
+    </wsdl:input>
+      <wsdl:output message="tns:getAreaResponse" name="getAreaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCircumference">
+      <wsdl:input message="tns:getCircumference" name="getCircumference">
+    </wsdl:input>
+      <wsdl:output message="tns:getCircumferenceResponse" name="getCircumferenceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CircleFunctionsServiceSoapBinding" type="tns:CircleFunctions">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getArea">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getArea">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAreaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCircumference">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCircumference">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCircumferenceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CircleFunctionsService">
+    <wsdl:port binding="tns:CircleFunctionsServiceSoapBinding" name="CircleFunctionsPort">
+      <soap:address location="http://localhost:8080/SimpleSOAPExample/CircleFunctions"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
